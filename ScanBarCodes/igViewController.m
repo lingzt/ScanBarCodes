@@ -40,6 +40,7 @@
     _highlightView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleBottomMargin;
     _highlightView.layer.borderColor = [UIColor greenColor].CGColor;
     _highlightView.layer.borderWidth = 3;
+//    _highlightView.tag = 12345;
     [self.view addSubview:_highlightView];
     
 //    _button = [[UIButton alloc] init];
@@ -109,15 +110,16 @@
 
         if (_detectionString != nil)
         {
-//            NSLog(@"%@",_detectionString);
+            NSLog(@"%@",_detectionString);
             //Next version retrive QR code information from firebase
-            [self performSegueWithIdentifier:@"toEvent" sender:self];
+//            [[self.view viewWithTag:12345] removeFromSuperview];
+            [_session stopRunning];
+//            [self performSegueWithIdentifier:@"toEvent" sender:self];
             break;
         }
         else
             NSLog(@"(none)");
     }
-
     _highlightView.frame = highlightViewRect;
 }
 
